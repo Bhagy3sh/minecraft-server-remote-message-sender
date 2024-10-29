@@ -4,13 +4,13 @@ require('dotenv').config();
 const bedrock = require('bedrock-protocol');
 
 // Replace with your webhook URL
-const WEBHOOK_URL = 'https://discord.com/api/webhooks/1297609003123216524/ez0RnlIKJ9hC-PLLty7fUkCb1mkY7aeTR0q2sTqIaqXWgoAP2ON6RRwfYO5kNp8WuXL7';
+const WEBHOOK_URL = process.env.WEBHOOK_URL;
 
 // Minecraft bot options
 const botOptions = {
-  host: 'emosjavasmp.aternos.me',
-  port: 33960,
-  username: 'Hachinaa'
+  host: process.env.IP,
+  port: process.env.PORT,
+  username: process.env.USERNAME
 };
 
 // Discord bot client
@@ -125,7 +125,7 @@ async function handleSayCommand(interaction) {
   const servMsg = interaction.options.getString('message');
   const embed = new EmbedBuilder()
     .setColor('#0099ff')
-    .setTitle('Hachinaa')
+    .setTitle('Bot')
     .setDescription('Message sent successfully');
 
   await interaction.deferReply();
@@ -175,7 +175,7 @@ async function handleSpamCommand(interaction) {
 
   const embed = new EmbedBuilder()
     .setColor('#0099ff')
-    .setTitle('Hachinaa')
+    .setTitle('Bot')
     .setDescription(`Spamming ${times} messages.`);
 
   await interaction.deferReply();
